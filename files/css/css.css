@@ -34,14 +34,14 @@ nav a{
 }
 
 #titre{
-  font-size: 150%;
+  font-size: 100%;
   color : #FF005D;
   text-align: center;
   background-image: url("../../files/img/fond_.jpg");
 }
 /* loading */
 .grid-1.center{text-align: center;}
-.grid-1.center img{ text-align: center; margin-bottom: 50px; margin-top: 150px;}
+.verif{ text-align: center; margin-bottom: 50px; margin-top: 150px;}
 
 /* membre */
 .membre{min-height: 550px;}
@@ -94,6 +94,7 @@ height: 100%;
 object-fit: cover;
 }
 
+
 /*         CHAT     */
 .chat{
   position: relative;
@@ -142,12 +143,149 @@ margin-top: 10px;
 height: 20px;
 width: 90%;
 }
+#droite{
+  line-height: 30px;
+  vertical-align: top;
+  position: relative;
+  float: right;
+  margin-right: 20px;
+  text-align: right;
+}
+#droite a{
+  background-color: #9fcdf9;
+  padding: 5px;
+  border-radius: 10px;
+}
+#droite a:hover{
+  background-color: #009900;
+}
 
 
+/*PROFIL VIEW */
+.inter{
+  margin: 2px;
+  border:none;
+	padding:6px;
+	border-radius:2px;
+	box-shadow:3px 3px 12px #999;
+	background:#fff;
+	font:bold 13px Arial;
+	color:#555;
+}
+.btn{
+  margin-top: 5px;
+	-moz-box-shadow:inset 0px 1px 0px 0px #f29c93;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #f29c93;
+	box-shadow:inset 0px 1px 0px 0px #f29c93;
+	background-color:#fe1a00;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #d83526;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #b23e35;
+}
+.vert{background-color:#009900;border-color:#009900; }
+.orange{background-color: #ff6600;}
+
+ /* PAGE AMIS */
+.boxAmis{
+  border: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1000px;
+  margin-top: 10px;
+}
+.Amis{
+  height: 70px;
+  line-height: 70px;
+  margin-left: 20px;
+}
+.Amis img{
+  margin-top: 10px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  vertical-align: top;
+}
+.Amis span{
+  font-weight: bold;
+}
+.Lprofil a {
+  text-decoration: none;
+  color: #000;
+}
+.Lprofil a:hover{
+  color: #FF0000;
+}
+/* Btn envoie message */
+.btnM{
+	background-color:#009900;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #009900;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+  text-shadow:0px 1px 0px #009900;
+}
+.droite{
+  position: relative;
+  float: right;
+  margin-right: 20px;
+  text-align: right;
+}
+.rouge{ 
+  background-color:#FF0000;
+  border:1px solid #FF0000;
+  text-shadow:0px 1px 0px #FF0000;
+}
 
 
-
-
+/*  404 */
+.e404{
+  padding: 50px;
+  min-height: 400px;
+}
+.e404 img{
+ width: 3%;
+ line-height: 20px;
+ vertical-align: middle;
+}
+.e404 a{
+  background-color:#009900;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #009900;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+  text-shadow:0px 1px 0px #009900;
+}
+/* message privé */
+.pm a {
+  text-decoration: none;
+  color: #000;
+}
+.pm a:hover{
+  color: #FF0000;
+}
 
 
 
@@ -160,7 +298,7 @@ footer{
 
 }
 
-//grille
+/* grille */
 
 .container{
 	width : 100%; /*1920px*/

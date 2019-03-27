@@ -1,6 +1,6 @@
 <?php
   session_start();
-  if (!empty($_SESSION['pseudo'])) // redirige a l'index si pas co --> fin en bas de page
+  if (!empty($_SESSION['membre'])) // redirige a l'index si pas co --> fin en bas de page
 {
   include_Once 'files/inc/header.inc.php';
   include_Once 'files/inc/config.php';
@@ -8,17 +8,17 @@
 <div class="grid-1 profilMembre">
 <div class="grid-1 membre">
   <?php include_Once 'files/inc/nav.inc.php'; ?>
-  <h1 class="boxdroite">Bonjour <?php echo $_SESSION['pseudo'] ?></h1><br/><br/>
+  <h1 class="boxdroite">Bonjour <?php echo $_SESSION['membre']['username'] ?></h1><br/><br/>
   <div class="grid-5 boxMid">
-    <a href="profil.php"><img src="files/img/profil.png" alt="profil">
+    <a href="profil.php?id=<?php echo $_SESSION['membre']['id_user']; ?>"><img src="files/img/profil.png" alt="profil">
     <span class="descImg">Mon profil</span></a>
   </div>
   <div class="grid-5 boxMid">
-    <a href=""><img src="files/img/mp.png" alt="messages privés">
+    <a href="inbox.php"><img src="files/img/mp.png" alt="messages privés">
     <span class="descImg">Mes messages privés</span></a>
   </div>
   <div class="grid-5 boxMid">
-    <a href=""><img src="files/img/amis.png" alt="amis">
+    <a href="amis.php"><img src="files/img/amis.png" alt="amis">
     <span class="descImg">Mes amis</span></a>
   </div>
   <div class="grid-5 boxMid">
