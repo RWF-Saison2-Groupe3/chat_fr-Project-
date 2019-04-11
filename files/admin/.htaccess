@@ -1,0 +1,4 @@
+AuthName "Page d'administration protegee, veuillez vous identifier"
+AuthType Basic
+AuthUserFile "/var/www/html/Chat_fr/files/admin/.htpasswd"
+Require valid-user

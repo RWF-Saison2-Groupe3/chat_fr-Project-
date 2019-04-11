@@ -1,4 +1,7 @@
 <?php
+
+  $title = 'Recupération de mot de passe';
+
   include_Once 'files/inc/header.inc.php';
   include_Once 'files/inc/config.php';
   include_Once 'files/inc/function.php';

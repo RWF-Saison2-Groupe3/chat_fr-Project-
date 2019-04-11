@@ -1,21 +1,56 @@
+@charset "utf-8";
+
+html {
+  height: 100%;
+}
+
 body{
+  position: relative;
   margin: 0;
   padding: 0;
   font-family: 'Muli', sans-serif;
+  background-image: url(../img/n_back.jpg);
+  background-size: cover;
 }
 
 .centrer{text-align: center;}
 .petit{font-size: 12px;}
+.gras{font-weight: bold;}
+.textrouge{ color: #FF0000;}
+.textvert{ color: #009900;}
+.droit{text-align: right; margin-right: 40px;}
+.inline{display: inline;}
+.nodeco{text-decoration: none; color: #000;}
+.lienem:hover{font-size: 15px;}
+.hoverRed:hover{color: #FF0000;}
 
 nav{
-  font-size: 20px;
   margin-left: 20px;
+  line-height: 31px;
 }
-nav a{
-  color: #FF0000;
-  text-decoration: none;
+nav img{
+  width: 30px;
+  vertical-align: middle;
 }
-.sepnav{color: #FF0000;}
+nav img:hover{
+/* L'image est grossie de 25% */
+-webkit-transform:scale(1.25); /* Safari et Chrome */
+-moz-transform:scale(1.25); /* Firefox */
+-ms-transform:scale(1.25); /* Internet Explorer 9 */
+-o-transform:scale(1.25); /* Opera */
+transform:scale(1.25);
+}
+.sepnav{
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #000;
+}
+#btnNav{
+  display: none;
+}
+#burger{
+  display: none;
+}
 
 #form{
   text-align: center;
@@ -35,29 +70,43 @@ nav a{
 
 #titre{
   font-size: 100%;
-  color : #FF005D;
+  color : #000;
   text-align: center;
-  background-image: url("../../files/img/fond_.jpg");
 }
+
+/* NAV NOTIFS */
+.notif{
+  position: absolute;
+  color: #FF0000;
+  margin-top: -15px;
+  margin-left: -10px;
+  border: 1px solid #FF0000;
+  border-radius: 50%;
+  height: 22px;
+  width: 22px;
+  text-align: center;
+  line-height: 20px;
+  background: #fce8e8;
+}
+
 /* loading */
 .grid-1.center{text-align: center;}
 .verif{ text-align: center; margin-bottom: 50px; margin-top: 150px;}
 
 /* membre */
-.membre{min-height: 550px;}
-.profilMembre{
-  background-image: url(../img/back.jpg);
-  background-size: cover;
+.membre{
+  min-height: 100vh;
 }
+
 .boxdroite{
   position: relative;
   text-align: right;
   margin-right: 20px;
-  margin-top: -24px;
-  color: #fff;
+  margin-top: -40px;
+  color: #000;
   border-style: solid;
   border-width: 0 1px 1px 1px;
-  border-color: #fff;
+  border-color: #000;
   border-radius: 0 0 10px 10px;
   text-align: center;
   margin-left: 73%;
@@ -65,15 +114,25 @@ nav a{
 .boxMid{
   min-height: 150px;
   margin: 20px;
+  margin-top: 100px;
+  margin-bottom: 100px;
   text-align: center;
 }
 .boxMid img{
-  width: 50%;
+  width: 125px;
   vertical-align: middle;
+}
+.boxMid img:hover{
+/* L'image est grossie de 25% */
+-webkit-transform:scale(1.10); /* Safari et Chrome */
+-moz-transform:scale(1.10); /* Firefox */
+-ms-transform:scale(1.10); /* Internet Explorer 9 */
+-o-transform:scale(1.10); /* Opera */
+transform:scale(1.10);
 }
 .boxMid a{text-decoration: none;}
 .descImg{
-  color: #fff;
+  color: #000;
 }
 
 
@@ -93,7 +152,10 @@ width: 100%;
 height: 100%;
 object-fit: cover;
 }
-
+.inputProfil{
+  text-align: center;
+  width: 400px;
+}
 
 /*         CHAT     */
 .chat{
@@ -102,13 +164,14 @@ object-fit: cover;
   margin-left: 14px;
   border-width: medium;
   border-color: orange;
-  border-style: dashed;
+  border-style: solid;
   border-radius: 10px;
   min-height: 380px;
   max-height: 380px;
   padding-top: 10px;
-  padding-left: 10px;
-    overflow: auto;
+  padding-right: 5px;
+  overflow: auto;
+  background-color: #fff;
 }
 .miniPc{
 display: inline-block;
@@ -159,7 +222,10 @@ width: 90%;
 #droite a:hover{
   background-color: #009900;
 }
-
+.nameC{
+  text-decoration: none;
+  color: #000;
+}
 
 /*PROFIL VIEW */
 .inter{
@@ -194,13 +260,55 @@ width: 90%;
 }
 .vert{background-color:#009900;border-color:#009900; }
 .orange{background-color: #ff6600;}
+.description{
+  margin-left: auto;
+  margin-right: auto;
+  width: 35%;
+  border: 1px solid #000; 
+  border-radius: 10px;
+  padding: 1%;
+}
+
+/* IF WEBMASTER */ 
+.webmaster{
+  transform: rotate(-55deg);
+  position: relative;
+  max-width: 15%;
+  margin: 0;
+  padding: 5px;
+  color: #fff;
+  background-color: #ff6600;
+  border-radius: 20%;
+}
+/* IF ADMIN */ 
+.admin{
+  transform: rotate(-55deg);
+  position: relative;
+  max-width: 15%;
+  margin: 0;
+  padding: 5px;
+  color: #fff;
+  background-color: #FFD700;
+  border-radius: 20%;
+}
+/* IF MODO */
+
+.modo{
+  transform: rotate(-55deg);
+  position: relative;
+  max-width: 15%;
+  margin: 0;
+  padding: 5px;
+  color: #fff;
+  background-color: #00e64d;
+  border-radius: 20%;
+}
 
  /* PAGE AMIS */
 .boxAmis{
-  border: 1px solid black;
   margin-left: auto;
   margin-right: auto;
-  width: 1000px;
+  width: 100%;
   margin-top: 10px;
 }
 .Amis{
@@ -226,6 +334,7 @@ width: 90%;
 .Lprofil a:hover{
   color: #FF0000;
 }
+
 /* Btn envoie message */
 .btnM{
 	background-color:#009900;
@@ -286,16 +395,82 @@ width: 90%;
 .pm a:hover{
   color: #FF0000;
 }
+.heure{
+  position: relative;
+  float: right;
+  margin-right: 20px;
+
+}
+/* ALL PAGE MAX  */
+.all{
+  margin-top: 50px;
+  min-height: 100vh;
+}
+.all0{
+  margin-top: 0;
+  min-height: 100vh;
+}
 
 
-
-footer{
-  margin-top: 2%;
-  padding: 1%;
+/* ADMIN */
+table{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
   text-align: center;
-  background-color: #9fcdf9;
-  border-style: dotted none none none;
+  padding: 0;
+}
+table, th, td {
+  padding: 10px;
+  border: solid 2px #000;
+  border-collapse: collapse;
+}
+/* ADMIN BAN */
 
+#check{
+  display: none;
+}
+
+/* ADMIN DOWNGRADE */
+#select{
+  display: none;
+}
+
+/* LIST USER */
+.boxUser{
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+  margin-top: 10px;
+  border: 1px solid #000;
+  border-radius: 20px;
+}
+.user{
+  height: 70px;
+  line-height: 70px;
+  margin-left: 20px;
+}
+.user img{
+  margin-top: 10px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  vertical-align: top;
+}
+.user span{
+  font-weight: bold;
+}
+
+
+/* FOOTER */
+.footer{
+  margin-top: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  border-style: dotted none none none;
 }
 
 /* grille */

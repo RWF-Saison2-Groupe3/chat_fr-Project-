@@ -1,71 +1,71 @@
 <?php
 session_start();
-if (!empty($_SESSION['membre'])) { // redirige a l'index si pas co --> fin en bas de page else header location
 
-  include_once 'files/inc/header.inc.php';
-  include_once 'files/inc/config.php';
-  include_once 'files/inc/nav.inc.php';
-  include_once 'files/inc/function.php';
+$title = 'Chat commun';
 
+$load = 'onLoad="load_messages()"';
 
-  ?>
-<div class="grid-1">
-    <h1 class="centrer">Chat Général</h1>
-    <p class="centrer petit"><em>Le message le plus récent est tout en haut du chat</em></p>
-    <p class="centrer petit">/!\ La page se rafraichit toute les 10 secondes /!\</p>
-</div>
-<!-- PARTIS JS REFRECH CHAT -->
+include_Once 'files/inc/function.php';
 
-<!-- partis chat affichage si existant-->
-<div class="grid-9 chat" id="test">
-    <?php
-    $mess = $mysqli->query("SELECT * FROM chatg ORDER BY id_mess DESC LIMIT 10");
-    header('refresh: 10;');
-    ?>
-    <?php while ($message = $mess->fetch_assoc()) {
-      echo '<div class="miniPc">';
-      echo '<a href="view.php?id=' . $message['id_n_m'] . '"><img src="files/upload/' . $message["photo_m"] . '" alt="photo de profil"></a></div>&nbsp';
-      echo '<div class="pseudo"><span>' . $message["id_m"] . '</span></div>';
-      echo '<div class="message">&nbsp;<span> :</span><span> ' . $message["mess_post_g"] . '</span></div>';
-      if (Admin()) {
-        echo '<div  id="droite"><a href="?moderation=' . $message['id_mess'] . '"><span>Modéré</span></a></div>';
-      }
-      echo '<br />';
-
-      /* MODERATION */
-      if (Admin()) {
-        if (!empty($_GET)) {
-          if ($_GET['moderation'] == $message['id_mess']) {
-            //echo $message['id_n_m']; Me renvoie bien l'id séléctionner
-            $id = $message['id_mess'];
-            $moda = $mysqli->query("DELETE FROM chatg WHERE id_mess=$id");
-            //header('location: chat.php');
-            $moderation = '<div class="message vert">&nbsp Le message a bien été modéré !</span></div>';
-            echo $moderation;
-            if (!empty($moderation)) {
-              header('Refresh:1; url=chat.php');
-            }
-            /* $mod = $moda->fetch_assoc(); ME RETOURNE BIEN LE TABLEAU
-        var_dump($mod); */
-          }
-        }
-      }
-    }
-    ?>
-</div>
-<div id="chatref" class="grid-9 entree">
-    <div class="entree">
-        <form method="post" autocomplete="off" action="files/inc/messageChat.php">
-            <input class="champMess" type="text" id="message" name="message" placeholder="Pas d'insultes, de messages inaproprié ou de données personnels" size="120" required><input type="submit" value="envoyer">
-        </form>
-    </div>
-</div>
-
-
-<?php
-include_once 'files/inc/footer.inc.php';
-} else {
-  header('Location: index.php');
+if(!connecter()){
+    header('location: connexion.php');
+    exit();
+  
 }
 
+include_once 'files/inc/header.inc.php';
+include_once 'files/inc/config.php';
+include_once 'files/inc/nav.inc.php';
+?>
+<div class="all0">
+    <div class="grid-1">
+        <h1 class="centrer">Chat Général</h1>
+    </div>
+
+
+
+    <?php 
+        if (isset($_GET['mod']) && $_GET['mod'] == 'ok') {
+            echo '<div class="grid-1 message vert centrer">&nbsp Le message a bien été modéré !</div>';
+
+            header('Refresh: 1; url=chat.php');
+        }
+        if (isset($_GET['sing']) && $_GET['sing'] == 'ok') {
+            echo '<div class="grid-1 message vert centrer">&nbsp Le message a bien été signalé !</div>';
+
+            header('Refresh: 1; url=chat.php');
+        }
+    ?>
+
+    <div class="grid-9 chat" id="chat_principal" style="border-radius: 10px;">
+    </div>
+    <div id="chatref" class="grid-9 entree">
+        <div class="entree">
+            <form method="post" autocomplete="off" action="files/inc/messageChat.php">
+                <input class="champMess" type="text" id="message" name="message" placeholder="Pas d'insultes, de messages inaproprié ou de données personnels" size="120" required><input type="submit" value="envoyer">
+            </form>
+        </div>
+    </div>
+    <script>
+        setInterval('load_messages()', 500);
+        function load_messages() {
+            $('#chat_principal').load('files/inc/load_chat.php');
+        }
+
+        /* AHHH CA MARCHHHHE */
+        var timescroll = setInterval(scroll, 200);
+        function scroll() {
+            var elem = document.getElementById('chat_principal');
+            elem.scrollTop = elem.scrollHeight;
+        }
+        var noboucle = setInterval(stop, 500);
+        function stop() {
+            clearInterval(timescroll);
+        }
+    </script>
+</div>
+
+<?php
+
+include_once 'files/inc/footer.inc.php';
 ?> 
