@@ -68,7 +68,7 @@ if (isset($_POST['cn_pseudo']) && isset($_POST['cn_passe'])) {
                 $_SESSION['membre'][$indice] = $element;
             }
         }
-        header('refresh: 0; url=verif.php'); // permet
+        header('refresh: 0; url=verif.php');
         exit(); // permet de stoper l'execution du code a cette endroit ( pas besoins du reste )
     } else {
         // si le couple user mdp n'existe pas, renvoie une erreur
